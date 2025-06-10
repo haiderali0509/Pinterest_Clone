@@ -1,0 +1,103 @@
+<% include ./partials/header.ejs %>
+    <main class="">
+        <div class="w-full rounded-lg text-center bg-white p-10">
+            <form hidden action="/pfpup" id="pfpupform" method="post" enctype="multipart/form-data">
+                <input type="file" name="pfpimage" id="pfpimage" />
+            </form>
+            <div class="flex flex-col items-center">
+                <div class="relative">
+                    <span id="pfpupicon"
+                        class="w-10 h-10 absolute bottom-0 right-0 flex justify-center items-center bg-zinc-200 rounded-full cursor-pointer">
+                        <i class="ri-pencil-fill text-zinc-800"></i>
+                    </span>
+                    <div class="w-32 h-32 rounded-full bg-gray-300 overflow-hidden ">
+                        <img src="/images/uploads/<%= user.pfp  %>" alt="Profile Picture"
+                            class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                <div class="mt-3 text-center">
+                    <h1 class="text-xl font-bold text-gray-800">
+                        <%= fullName %>
+                    </h1>
+                    <p class="text-sm text-gray-500">
+                        <%= username %>
+                    </p>
+                    <p class="text-base text-gray-600 mt-1">1 following</p>
+                    <div class="mt-4 flex gap-3 justify-center flex-wrap">
+                        <button
+                            class="bg-gray-300 text-gray-800 rounded-full px-5 py-2 hover:bg-gray-400">Share</button>
+                        <button class="bg-gray-300 text-gray-800 rounded-full px-5 py-2 hover:bg-gray-400">Edit
+                            profile</button>
+                    </div>
+
+                </div>
+                <a href="/add" class="px-10 py-2 rounded-lg bg-red-700 text-xs font-semibold mt-5 text-white">Add New
+                    Post</a>
+
+                <!-- <form action="/upload" method="post" enctype="multipart/form-data"
+                    class="mt-5 flex flex-col gap-3 items-center">
+                    <input type="text" name="content" id="content" placeholder="Post content"
+                        class="border px-3 py-2 rounded-lg w-64" />
+                    <input type="file" name="file" id="file" class="w-64" />
+                    <input type="submit" value="Upload"
+                        class="bg-red-500 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-red-600" />
+                </form> -->
+            </div>
+
+            <div class="flex justify-center mt-6 space-x-4" id="tabs">
+                <button id="createdBtn" class="tab-btn text-base font-bold px-4 py-2 text-gray-600 hover:text-black">
+                    Created
+                </button>
+                <button id="savedBtn" class="tab-btn text-base font-bold px-4 py-2 text-gray-600 hover:text-black">
+                    Saved
+                </button>
+            </div>
+            <div id="createdContent" class="mt-6 hidden">Created Content</div>
+            <div id="savedContent" class=" cards flex flex-wrap gap-5 mt-5 text-center">
+                <% if (user.posts && user.posts.length> 0) { %>
+                    <div class="card">
+                        <div class="w-52 h-40 bg-zinc-200 rounded-lg overflow-hidden shadow-md">
+                            <img class="w-full h-full object-cover" src="/images/uploads/<%=user.posts[0].postimage %>"
+                                alt="">
+                        </div>
+                        <a href="/posts/show" class="text-xl font-semibold mt-3">All Pins</a>
+                        <h5 class="text-sm font-medium opacity-80">
+                            <%= user.posts.length %> Pins
+                        </h5>
+                    </div>
+                    <% } else { %>
+                        <p class="text-center">No posts yet</p>
+                        <% } %>
+
+            </div>
+            <!-- <div class="text-center mt-5">
+                <div class="flex flex-wrap gap-5">
+                    <% user.posts.forEach(post=> { %>
+                        <div class="w-72 bg-white border rounded-lg overflow-hidden shadow-md">
+                            <img src="/images/uploads/<%= post.postimage %>" alt="..." class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <h5 class="text-lg font-semibold text-gray-800">
+                                    <%= post.content %>
+                                </h5>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+            </div>
+        </div> -->
+    </main>
+    <script>
+        const createdBtn = document.getElementById("createdBtn");
+        const savedBtn = document.getElementById("savedBtn");
+        const createdContent = document.getElementById("createdContent");
+        const savedContent = document.getElementById("savedContent");
+
+        document.getElementById('pfpupicon').addEventListener('click', function () {
+            document.querySelector('#pfpupform input').click();
+        });
+        document.querySelector('#pfpupform input').addEventListener('change', function () {
+            document.getElementById('pfpupform').submit();
+        });
+    </script>
+
+    <% include ./partials/footer.ejs %>

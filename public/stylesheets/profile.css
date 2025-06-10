@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    color: #333;
+    background-color: #fefefe;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    /* height: 100vh; */
+    margin: 0;
+}
+
+.profile-container {
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-picture img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.profile-info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.username {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.username {
+    color: #888;
+    font-size: 14px;
+}
+
+.following-count {
+    font-size: 16px;
+    color: #555;
+    margin-top: 5px;
+}
+
+.profile-actions {
+    margin-top: 15px;
+}
+
+.share-btn,
+.edit-profile-btn {
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.share-btn:hover,
+.edit-profile-btn:hover {
+    background-color: #bbb;
+}
+
+.profile-tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.tab.active {
+    border-bottom: 2px solid #000;
+}
+
+.profile-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.empty-message {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.create-pin-btn {
+    background-color: #f30d19;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.create-pin-btn:hover {
+    background-color: #df0812;
+}
+
+/* Responsive Styles */
+@media (min-width: 600px) {
+    .profile-header {
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-info {
+        text-align: center;
+    }
+
+    .profile-container {
+        padding: 40px;
+    }
+
+    .share-btn,
+    .edit-profile-btn {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .profile-tabs {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 599px) {
+    .profile-container {
+        padding: 20px;
+    }
+
+    .tab {
+        font-size: 14px;
+    }
+
+    .create-pin-btn {
+        padding: 8px 16px;
+    }
+
+    .empty-message {
+        font-size: 14px;
+    }
+}
+
+* {
+    margin: 0;
+}

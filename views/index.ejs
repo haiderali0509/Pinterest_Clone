@@ -1,0 +1,45 @@
+<% include ./partials/header.ejs %>
+  <div class="bg-gray-300 min-h-screen flex items-center justify-center">
+    <div class="bg-white text-center rounded-3xl shadow-md w-[400px] p-6 relative">
+      <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="pin logo"
+        class="w-[70px] mx-auto" />
+      <p class="text-xl font-bold leading-none">Welcome to Pinterest</p>
+      <p class="font-light">Find new ideas to try</p>
+
+      <form action="/signup" method="post" class="flex flex-col items-center">
+        <div class="flex flex-col items-start w-[245px]">
+          <label for="email" class="text-sm font-medium">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Email"
+            class="w-full p-3 text-sm text-gray-700 border-2 border-gray-500 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <div class="flex flex-col items-start w-[245px]">
+          <label for="password" class="text-sm font-medium">Password</label>
+          <input type="password" id="password" name="password" required placeholder="Password"
+            class="w-full p-3 text-sm text-gray-700 border-2 border-gray-500 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <div class="flex flex-col items-start w-[245px]">
+          <label for="dob" class="text-sm font-medium">Date of Birth</label>
+          <input type="date" id="dob" name="dob" required
+            class="w-full p-3 text-sm text-gray-700 border-2 border-gray-500 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <input type="submit" value="Sign Up"
+          class="w-[250px] h-10 bg-red-600 text-white font-bold rounded-full mt-2 hover:bg-red-700 cursor-pointer focus:outline-none" />
+
+        <p class="text-sm font-bold my-2">OR</p>
+
+        <button type="button"
+          class="w-[250px] h-10 bg-gray-300 hover:bg-gray-400 text-black font-semibold rounded-full flex items-center justify-center">
+          <i class="fab fa-google text-green-500"></i>
+          <a href="#">Continue with Google</a>
+        </button>
+
+        <a href="/login" class="text-blue-700 hover:underline text-sm mt-2
+        -0.5rem">Already member? Log In</a>
+      </form>
+    </div>
+  </div>
+
+  <% include ./partials/footer.ejs %>

@@ -1,0 +1,44 @@
+<% include ./partials/header.ejs %>
+<div class="bg-gray-300 min-h-screen flex items-center justify-center">
+    <div class="bg-white text-center rounded-3xl shadow-md w-[400px] p-6 relative">
+      <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
+        alt="pin logo" class="w-[70px] mx-auto" />
+      <p class="text-xl font-bold leading-none">Login to see more</p>
+  
+      <form action="/login" method="post" class="flex flex-col items-center w-[250px] mx-auto mt-2">
+        <div class="flex flex-col items-start w-full">
+          <label for="email" class="text-sm font-medium">Email</label>
+          <input type="email" id="email" name="email" placeholder="Email" required
+            class="w-full p-3 text-sm text-gray-700 border-2 border-gray-500 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+  
+        <div class="flex flex-col items-start w-full">
+          <label for="password" class="text-sm font-medium">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required
+            class="w-full p-3 text-sm text-gray-700 border-2 border-gray-500 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+  
+        <% if (error.length > 0) { %>
+          <span id="errorSpan" class="self-start w-full">
+            <p class="text-red-700 font-medium "><%= error %></p>
+          </span>
+        <% } %>
+  
+        <a href="/forgot" class="text-xs text-left w-full text-gray-600 hover:underline mb-1">Forgot your password?</a>
+  
+        <input type="submit" value="Log In"
+          class="w-full h-10 bg-red-600 text-white font-bold rounded-full mt-1 hover:bg-red-700 cursor-pointer focus:outline-none" />
+  
+        <p class="text-sm font-bold my-2">OR</p>
+  
+        <button type="button"
+          class="w-full h-10 bg-gray-300 hover:bg-gray-400 text-black font-semibold rounded-full">
+          <a href="#">Continue with Google</a>
+        </button>
+  
+        <a href="/" class="text-blue-700 hover:underline text-sm mt-2">Not on Pinterest yet? Sign up</a>
+      </form>
+    </div>
+  </div>
+  
+<% include ./partials/footer.ejs %>
