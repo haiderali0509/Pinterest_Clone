@@ -1,3 +1,4 @@
+require("dotenv").config();
 var createError = require("http-errors");
 var express = require("express");
 var app = express();
@@ -13,7 +14,13 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const userModel = require("./models/userModel");
 
-mongoose.connect("mongodb://localhost:27017/pinterest_clone");
+const mongoURI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/pinterest_clone";
+
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.error(err));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -24,7 +31,9 @@ app.use(
   expressSession({
     resave: false,
     saveUninitialized: true,
-    secret: "secret_key",
+    secret:
+      process.env.SESSION_SECRET ||
+      "2180253a7dce9ab2db91acfc3caf062ff3aef97bcdeff9e86e520b2d60b89a06635903e0ecf3bff5a769de0bcad3a8b8fe51cb105e733b1d32612d8c8ba5bd95",
   })
 );
 app.use(passport.initialize());
